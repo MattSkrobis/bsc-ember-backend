@@ -3,6 +3,3 @@ language:
 
 rvm:
   - 2.4.1
-
-bundler_args:
-  --without test --jobs 3 --retry 3
