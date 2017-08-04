@@ -146,7 +146,7 @@ DEPENDENCIES
   byebug
   jsonapi-resources
   listen (~> 3.0.5)
-  pg
+  pg (= 0.21.0)
   pry (= 0.10.4)
   puma (~> 3.0)
   rack-cors
