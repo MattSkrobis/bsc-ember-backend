@@ -1,24 +1,31 @@
-# README
+# BSC API 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://travis-ci.org/MattSkrobis/bsc-ember-backend.svg?branch=master)](https://travis-ci.org/MattSkrobis/bsc-ember-backend)
+[![Dependency Status](https://gemnasium.com/badges/github.com/MattSkrobis/bsc-ember-backend.svg)](https://gemnasium.com/github.com/MattSkrobis/bsc-ember-backend)
 
-Things you may want to cover:
+A backend aplication for BSC Ember
 
-* Ruby version
+## Prerequisites
 
-* System dependencies
+Ruby 2.4.1 & Bundler 
 
-* Configuration
+## Setup
 
-* Database creation
+````bash
+bundle install
+bin/rails db:create db:migrate db:seed
+````
 
-* Database initialization
+## Server 
 
-* How to run the test suite
+````bash
+bin/rails s
+````
 
-* Services (job queues, cache servers, search engines, etc.)
+## Testing 
 
-* Deployment instructions
+In progress
 
-* ...
+## Deployment 
+
+automated by heroku 
