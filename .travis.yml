@@ -1,5 +1,18 @@
-language: 
-  ruby
+language: ruby
+
+services: postgresql
 
 rvm:
   - 2.4.1
+
+before_install:
+  - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+  - export RAILS_ENV=test
+
+before_script:
+  - bundle exec rake db:create db:migrate
+
+script: bundle exec rspec --format=d
+
+addons:
+  postgresql: 9.6
