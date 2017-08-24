@@ -23,8 +23,10 @@ bin/rails s
 ````
 
 ## Testing 
-
-In progress
+```` bash
+rspec
+````
+Codecov is in place
 
 ## Deployment 
 
