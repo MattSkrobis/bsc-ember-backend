@@ -1,3 +1,5 @@
+require 'rollbar'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -75,4 +77,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  Rollbar.configure do |config|
+    config.access_token = '4a7e012614f04a4c85c5cc08398bd945'
+  end
 end
