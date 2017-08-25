@@ -14,8 +14,10 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/coverage/*
 !/log/.keep
 !/tmp/.keep
+/config/secrets.yml
 
 # Ignore Byebug command history file.
 .byebug_history
