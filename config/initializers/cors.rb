@@ -20,5 +20,9 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     resource '/categories*',
       headers: :any,
       methods: [:get, :post, :patch, :delete, :put, :options, :head]
+
+    resource '/pictures*',
+      headers: :any,
+      methods: [:get, :post, :delete,  :options, :head]
   end
 end
