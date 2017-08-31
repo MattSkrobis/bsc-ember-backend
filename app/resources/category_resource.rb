@@ -1,4 +1,4 @@
 class CategoryResource < JSONAPI::Resource
   attributes :name, :visible
-  relationship :product, to: :many
+  has_many :products
 end
