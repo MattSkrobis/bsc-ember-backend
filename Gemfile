@@ -16,6 +16,7 @@ gem "active_model_serializers", "~> 0.10.6"
 gem 'pg', '0.21.0'
 gem 'pg_search', '2.1.0'
 gem 'rack-cors'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platform: :mri
