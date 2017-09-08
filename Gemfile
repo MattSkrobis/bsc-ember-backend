@@ -17,6 +17,7 @@ gem 'pg', '0.21.0'
 gem 'pg_search', '2.1.0'
 gem 'rack-cors'
 gem 'devise'
+gem 'simple_token_authentication', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
