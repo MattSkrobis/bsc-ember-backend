@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   jsonapi_resources :products
   jsonapi_resources :categories
   jsonapi_resources :pictures
+  jsonapi_resources :orders
+  jsonapi_resources :order_lines
 end
