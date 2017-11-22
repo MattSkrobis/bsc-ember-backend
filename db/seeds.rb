@@ -1,7 +1,44 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.create(first_name: "Angela", last_name: "Ziegler", email: "a.ziegler@example.com", 
+address_line1: 'ul. 3 Maja 21', address_line2: '43-300 Bielsko-Biała', gender: 'female', 
+telephone_number: 342423421, is_admin: true,
+password: 'Secret99', password_confirmation: 'Secret99')
+
+User.create(first_name: "Reinhardt", last_name: "Wilhelm", email: "r.wilhelm@example.com",
+ address_line1: "ul. Roosevelta 34/3", address_line2: "63-213 Poznań", 
+ gender: "male", telephone_number: "342423423", is_admin: false,
+ password: 'Secret99', password_confirmation: 'Secret99')
+
+categories = ['Ubiór elegancki', 'Na codzień', 'Ubiór sportowy']
+materials = ['Naturalny', 'Syntetyczny']
+colors = ['Zielony', 'Czerwony', 'Niebieski', 'Fioletowy', 'Biały']
+
+categories.each do |name|
+  Category.create(name: name)
+end
+
+['Sukienka', 'Podkoszulek', 'Dres sportowy'].each_with_index do |name, index|
+  Product.create(name: name, gender: 'female', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(500),
+  availability: true, currency: 'zł', quantity: 10000, category_id: Category.find_by(name: categories[index]), material: materials.sample,
+  color: colors.sample)
+end
+
+['Garnitur', 'Koszula', 'Dres sportowy'].each_with_index do |name, index|
+  Product.create(name: name, gender: 'male', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(500),
+  availability: true, currency: 'zł', quantity: 10000, category_id: Category.find_by(name: categories[index]), material: materials.sample,
+  color: colors.sample)
+end
+
+q1 = Question.create(description: 'Jaki kolor preferujesz?')
+colors.each {|answer| Answer.create(question_id: q1.id, description: answer)}
+
+q2 = Question.create(description: 'Jaki typ tkaniny preferujesz?')
+materials.each {|answer| Answer.create(question_id: q2.id, description: answer)}
+
+q3 = Question.create(description: 'Jakie ubrania lubisz najbardziej?')
+categories.each {|answer| Answer.create(question_id: q3.id, description: answer)}
+
+Question.all.each do |question|
+  User.all.each do |user|
+    UserAnswer.create(user_id: user.id, question_id: question.id, answer_id: question.answers.sample.id)
+  end
+end
