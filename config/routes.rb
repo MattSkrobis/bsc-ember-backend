@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   jsonapi_resources :pictures
   jsonapi_resources :orders
   jsonapi_resources :order_lines
+  jsonapi_resources :questions
+  jsonapi_resources :answers
+  jsonapi_resources :user_answers
 end
