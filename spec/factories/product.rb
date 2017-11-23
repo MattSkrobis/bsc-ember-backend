@@ -10,11 +10,5 @@ FactoryGirl.define do
     currency 'zł'
     availability true
     quantity 10000
-
-    ['Garnitur', 'Koszula', 'Dres sportowy'].each_with_index do |name, index|
-      Product.create(name: name, gender: 'male', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(500),
-      availability: true, currency: 'zł', quantity: 10000, category_id: Category.find_by(name: categories[index]), material: materials.sample,
-      color: colors.sample)
-    end
   end
 end

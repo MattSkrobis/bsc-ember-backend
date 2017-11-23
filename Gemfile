@@ -22,7 +22,7 @@ gem 'simple_token_authentication', '~> 1.0'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry', '0.10.4'
-  gem 'rspec-rails', '~> 3.5'
+  
 end
 
 group :development do
@@ -37,7 +37,13 @@ group :production do
 end
 
 group :test do
-  gem 'codecov', :require => false
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'rspec'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'timecop'
+  gem 'email_spec'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

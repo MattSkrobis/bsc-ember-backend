@@ -28,13 +28,13 @@ end
   color: colors.sample)
 end
 
-q1 = Question.create(description: 'Jaki kolor preferujesz?')
+q1 = Question.create(description: 'Jaki kolor preferujesz?', query_field: 'color')
 colors.each {|answer| Answer.create(question_id: q1.id, description: answer)}
 
-q2 = Question.create(description: 'Jaki typ tkaniny preferujesz?')
+q2 = Question.create(description: 'Jaki typ tkaniny preferujesz?', query_field: 'material')
 materials.each {|answer| Answer.create(question_id: q2.id, description: answer)}
 
-q3 = Question.create(description: 'Jakie ubrania lubisz najbardziej?')
+q3 = Question.create(description: 'Jakie ubrania lubisz najbardziej?', query_field: 'category')
 categories.each {|answer| Answer.create(question_id: q3.id, description: answer)}
 
 Question.all.each do |question|
