@@ -1,5 +1,5 @@
 class ProductResource < JSONAPI::Resource
-  attributes :name, :description, :sku, :availability, :currency, :price, :quantity
+  attributes :name, :description, :sku, :availability, :currency, :price, :quantity, :color, :gender, :material
   has_one :category
   has_many :pictures
   has_many :order_lines
@@ -11,4 +11,17 @@ class ProductResource < JSONAPI::Resource
   filter :selected_ids, apply: ->(records, value, _options) {
     value[0] ? records.where(id: value[0]) : []
   }
+  filter :preferred_products, apply: ->(records, value, _options) {
+    if value[0] && context[:current_user].user_has_preferences? 
+      ProductRecommender.new(context[:current_user]).call
+    else 
+      []
+    end
+  }
+
+  private
+
+  def user_has_preferences?
+    context[:current_user].user_has_preferences?
+  end
 end

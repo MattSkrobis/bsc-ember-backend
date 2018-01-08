@@ -3,8 +3,8 @@ FactoryGirl.define do
     sequence(:name) { |n| "description_#{n}" }
     sequence(:gender) { ['male', 'female'].sample  }
     sequence(:description) { |n| "description_#{n}" }
-    sku rand(100000) 
-    price rand(500)
+    sequence(:price) { rand(500) }
+    sequence(:sku) { rand(100000) }
     sequence(:material) { ['Naturalny', 'Syntetyczny'].sample }
     sequence(:color) { ['Zielony', 'Czerwony', 'Niebieski', 'Fioletowy', 'Biały'].sample }
     currency 'zł'

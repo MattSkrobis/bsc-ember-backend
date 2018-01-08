@@ -9,7 +9,6 @@ FactoryGirl.define do
     sequence(:telephone_number) { |n| n }
     sequence(:password) { 'secret' }
     sequence(:password_confirmation) { 'secret' }
-    sequence(:confirmed_at) { Time.now }
   end
 
   factory :admin, parent: :user do

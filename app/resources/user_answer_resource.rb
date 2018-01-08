@@ -1,13 +1,13 @@
 class UserAnswerResource < JSONAPI::Resource
-  attributes :user_id, :answer_id, :question_id, :kot
+  attributes :user_id, :answer_id, :question_id
   belongs_to :user
   belongs_to :question
   belongs_to :answer
 
-  filters :user_id, :question_id
+  filter :question_id
+  filter :user_id
 
-  def kot
-    binding.pry
-    context[:current_user]
+ def self.records(options = {})
+    context[:current_user].user_answers
   end
 end
