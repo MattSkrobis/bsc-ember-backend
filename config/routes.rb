@@ -11,5 +11,11 @@ Rails.application.routes.draw do
   jsonapi_resources :order_lines
   jsonapi_resources :questions
   jsonapi_resources :answers
+  jsonapi_resources :messages
+  jsonapi_resources :replies
   jsonapi_resources :user_answers
+
+  namespace :mailer do
+    resource :reply, only: :create
+  end
 end

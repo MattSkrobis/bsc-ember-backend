@@ -22,10 +22,10 @@ gem 'simple_token_authentication', '~> 1.0'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry', '0.10.4'
-  
 end
 
 group :development do
+  gem "letter_opener"
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   gem 'listen', '~> 3.1.5'
   gem 'spring'
