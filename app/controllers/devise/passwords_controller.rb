@@ -5,7 +5,6 @@ class Devise::PasswordsController < DeviseController
 
   # POST /resource/password
   def create
-    binding.pry
     resource = resource_class.find_by(email: params[:email])
      if (resource)
       resource.send_reset_password_instructions

@@ -1,4 +1,4 @@
-class UserAnswersController < ApplicationController
+class UserAnswersController < JSONAPI::ResourceController
   before_action :authenticate_user!
 
   def context
@@ -6,7 +6,7 @@ class UserAnswersController < ApplicationController
   end
 
   def authenticate_user!
-    bs, token, nothing, email = request.headers['Authorization'].split('"') if request.headers['Authorization']
+    _0, token, _2, email = request.headers['Authorization'].split('"') if request.headers['Authorization']
     user = User.find_by(email: email)
     if Devise.secure_compare(user.authentication_token, token)
       sign_in user

@@ -4,7 +4,6 @@ class QuestionResource < JSONAPI::Resource
   has_many :answers
 
   # filter :user_selected_answers, apply: ->(records, value, _options) {
-  #   binding.pry
   #   filter[name_last]
   #   value[0] ? records.where(user_id: value[0]) : []
   # }

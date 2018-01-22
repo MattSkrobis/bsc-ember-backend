@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20180108150839) do
     t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "transaction_number"
     t.string "size"
   end
 
@@ -52,6 +51,9 @@ ActiveRecord::Schema.define(version: 20180108150839) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "transaction_number"
+    t.decimal "discount"
+    t.decimal "total"
   end
 
   create_table "pictures", force: :cascade do |t|

@@ -1,9 +1,9 @@
-User.create(first_name: "Angela", last_name: "Ziegler", email: "a.ziegler@example.com", 
+admin = User.create(first_name: "Angela", last_name: "Ziegler", email: "a.ziegler@example.com", 
 address_line1: 'ul. 3 Maja 21', address_line2: '43-300 Bielsko-Biała', gender: 'female', 
 telephone_number: 342423421, is_admin: true,
 password: 'Secret99', password_confirmation: 'Secret99')
 
-User.create(first_name: "Reinhardt", last_name: "Wilhelm", email: "r.wilhelm@example.com",
+user = User.create(first_name: "Reinhardt", last_name: "Wilhelm", email: "r.wilhelm@example.com",
  address_line1: "ul. Roosevelta 34/3", address_line2: "63-213 Poznań", 
  gender: "male", telephone_number: "342423423", is_admin: false,
  password: 'Secret99', password_confirmation: 'Secret99')
@@ -42,3 +42,21 @@ Question.all.each do |question|
     UserAnswer.create(user_id: user.id, question_id: question.id, answer_id: question.answers.sample.id)
   end
 end
+
+order_statuses = ['Zrealizowane', 'W realizacji', 'Nieopłacone', 'Anulowane']
+products = Product.pluck(:id)
+
+order_statuses.each do |status|
+  Order.create(user: user, status: status, discount: rand(50)).tap do |order|
+    3.times do 
+      OrderLine.create(count: rand(5), order: order, product_id: products.sample, size: ['XS', 'S', 'M', 'L', 'XL'].sample)
+    end
+  end
+end
+
+Reply.skip_callback(:create, :after, :send_mail)
+
+message = Message.create(email: user.email, body: 'Treść pytania')
+Reply.create(body: 'Treść odpowiedzi', message: message)
+
+Reply.set_callback(:create, :after, :send_mail)

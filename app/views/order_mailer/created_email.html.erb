@@ -1,0 +1,19 @@
+<p>Witaj, <%= @order.user.email %>!</p>
+
+<p><%= @order.created_at.strftime("%d/%m/%Y o %H:%M") %> złozyłeś/łaś u nas zamówienie nr <%= @order.id %>. Składa się ono z następujących produktów:</p>
+
+<ul>
+  <% @order.order_lines do |ol| %>
+  <li>
+    <%= ol.count %>szt. - <%= ol.product.name %> w rozmiarze <%= ol.size%> - cena za szt: <%= ol.product.price%> - <%ol.total%> 
+  </li>
+  <% end %>
+</ul>
+
+<p>
+Na tym etapie nie jest mozliwa zmiana zamówienia. Twoje zamówienie zostanie zrealizowane najpóźniej do trzech dni po zaksięgowaniu wpłaty. Poinformujemy cię o tym fakcie w następnej wiadomości.
+</p>
+
+<p>
+Pozdrawiamy, BSC
+</p>
