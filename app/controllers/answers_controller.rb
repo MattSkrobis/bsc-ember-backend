@@ -1,2 +1,2 @@
-class AnswersController < JSONAPI::ResourceController
+class AnswersController < RestrictedController
 end

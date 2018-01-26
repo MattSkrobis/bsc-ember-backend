@@ -12,8 +12,8 @@ class ProductResource < JSONAPI::Resource
     value[0] ? records.where(id: value[0]) : []
   }
   filter :preferred_products, apply: ->(records, value, _options) {
-    if value[0] && context[:current_user].user_has_preferences? 
-      ProductRecommender.new(context[:current_user]).call
+    if value[0] && User.find(value[0]).user_has_preferences
+      ProductRecommender.new(User.find(value[0])).call
     else 
       []
     end

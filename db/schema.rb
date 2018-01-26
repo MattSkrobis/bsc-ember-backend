@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20180108150839) do
     t.string "transaction_number"
     t.decimal "discount"
     t.decimal "total"
+    t.string "courier"
+    t.decimal "price_after_discount"
   end
 
   create_table "pictures", force: :cascade do |t|

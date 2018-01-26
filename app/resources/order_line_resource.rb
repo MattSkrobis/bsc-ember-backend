@@ -1,6 +1,6 @@
 class OrderLineResource < JSONAPI::Resource
   attributes :count, :size
   
-  belongs_to :product
-  belongs_to :order
+  has_one :product
+  has_one :order
 end

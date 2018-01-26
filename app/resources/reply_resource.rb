@@ -1,5 +1,5 @@
 class ReplyResource < JSONAPI::Resource
   attributes :body, :email
   
-  belongs_to :message
+  has_one :message
 end

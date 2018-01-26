@@ -16,16 +16,18 @@ categories.each do |name|
   Category.create(name: name)
 end
 
-['Sukienka', 'Podkoszulek', 'Dres sportowy'].each_with_index do |name, index|
-  Product.create(name: name, gender: 'female', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(500),
-  availability: true, currency: 'zł', quantity: 10000, category_id: Category.find_by(name: categories[index]), material: materials.sample,
-  color: colors.sample)
-end
+30.times do 
+  ['Sukienka', 'Podkoszulek', 'Dres sportowy'].each_with_index do |name, index|
+    Product.create(name: name, gender: 'female', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(500),
+    availability: true, currency: 'zł', quantity: 10000, category_id: Category.find_by(name: categories[index]), material: materials.sample,
+    color: colors.sample)
+  end
 
-['Garnitur', 'Koszula', 'Dres sportowy'].each_with_index do |name, index|
-  Product.create(name: name, gender: 'male', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(500),
-  availability: true, currency: 'zł', quantity: 10000, category_id: Category.find_by(name: categories[index]), material: materials.sample,
-  color: colors.sample)
+  ['Garnitur', 'Koszula', 'Dres sportowy'].each_with_index do |name, index|
+    Product.create(name: name, gender: 'male', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(500),
+    availability: true, currency: 'zł', quantity: 10000, category_id: Category.find_by(name: categories[index]), material: materials.sample,
+    color: colors.sample)
+  end
 end
 
 q1 = Question.create(description: 'Jaki kolor preferujesz?', query_field: 'color')
@@ -45,6 +47,7 @@ end
 
 order_statuses = ['Zrealizowane', 'W realizacji', 'Nieopłacone', 'Anulowane']
 products = Product.pluck(:id)
+
 
 order_statuses.each do |status|
   Order.create(user: user, status: status, discount: rand(50)).tap do |order|

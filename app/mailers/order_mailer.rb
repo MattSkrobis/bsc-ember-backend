@@ -12,7 +12,7 @@ class OrderMailer < ApplicationMailer
     mail(:to => "#{@order.user.email}", :subject => "Zamówienie zostało wysłane")
   end
 
-  def created_email(order)
+  def creation_email(order)
     @order = order
     mail(:to => "#{@order.user.email}", :subject => "Zamówienie zostało przyjęte")
   end
