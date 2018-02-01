@@ -1,5 +1,5 @@
 class UserAnswerResource < JSONAPI::Resource
-  attributes :user_id, :answer_id, :question_id
+  attributes :answer_description, :question_description
   has_one :user
   has_one :question
   has_one :answer
@@ -7,7 +7,11 @@ class UserAnswerResource < JSONAPI::Resource
   filter :question_id
   filter :user_id
 
-  def self.records(options = {})
-    options[:context][:current_user].user_answers
+  def self.updatable_fields(context)
+    [:user, :question, :answer]
+  end
+
+  def self.creatable_fields(context)
+    [:user, :question, :answer]
   end
 end

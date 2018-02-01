@@ -4,7 +4,8 @@ class Product < ApplicationRecord
   has_many :pictures
   pg_search_scope :search, :against => :name, :using => {:tsearch => {:prefix => true}}
   pg_search_scope :search_by_color, :against => :color, :ignoring => :accents, :using => {:tsearch => {:prefix => true}}
-  pg_search_scope :search_by_category_name, :against => :category_name, :ignoring => :accents, :using => {:tsearch => {:prefix => true}}
+  # pg_search_scope :search_by_category_name, :against => :category_name, :ignoring => :accents, :using => {:tsearch => {:prefix => true}} 
+  pg_search_scope :search_by_category_name, :associated_against => {:category=> :name}, :ignoring => :accents, :using => {:tsearch => {:prefix => true}}
   pg_search_scope :search_by_material, :against => :material, :ignoring => :accents, :using => {:tsearch => {:prefix => true}}
   pg_search_scope :search_by_gender, :against => :gender, :ignoring => :accents, :using => {:tsearch => {:prefix => true}}
   

@@ -3,9 +3,9 @@
 <p><%= @order.created_at.strftime("%d/%m/%Y o %H:%M") %> złozyłeś/łaś u nas zamówienie nr <%= @order.id %>. Składa się ono z następujących produktów:</p>
 
 <ul>
-  <% @order.order_lines do |ol| %>
+  <% @order.order_lines.each do |ol| %>
   <li>
-    <%= ol.count %>szt. - <%= ol.product.name %> w rozmiarze <%= ol.size%> - cena za szt: <%= ol.product.price%> - <%ol.total%> 
+    <%= ol.count %>szt. - <%= ol.product.name %> w rozmiarze <%= ol.size%> - cena za szt: <%= ol.product.price%> PLN - <%= ol.product.price*ol.count%> PLN 
   </li>
   <% end %>
 </ul>
