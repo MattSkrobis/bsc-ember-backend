@@ -11,14 +11,14 @@ end
 private 
 
 def recommend_products
-  binding.pry
  products = Product.search_by_gender(user.gender)
  if query_fields.include?('color')
   products = products.search_by_color(question_answer('color'))
- elsif query_fields.include?('material')
+ end
+ if query_fields.include?('material')
   products = products.search_by_material(question_answer('material'))
- elsif query_fields.include?('category')
-  binding.pry
+ end
+ if query_fields.include?('category')
   products = products.search_by_category_name(question_answer('category'))
  end
  products
@@ -29,7 +29,6 @@ def user_answers
 end
 
 def query_fields
-  binding.pry
   user_answers.map(&:question).pluck(:query_field)
 end
 
