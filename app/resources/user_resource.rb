@@ -3,4 +3,5 @@ class UserResource < JSONAPI::Resource
     :current_password, :address_line1, :address_line2, :gender, :telephone_number, 
     :is_admin, :user_has_preferences
   has_many :user_answers
+  has_many :orders
   end

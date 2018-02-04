@@ -14,7 +14,6 @@ class User < ApplicationRecord
   def cart_order
     orders.where(status: 'Koszyk')
   end
-  private
 
   def create_user_answers
     Question.all.each do |question|

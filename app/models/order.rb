@@ -4,12 +4,16 @@ class Order < ApplicationRecord
   has_many :order_lines
   
   scope :cart, ->(user_id){ where(user_id: user_id, status: 'Koszyk') }
+  scope :not_cart, ->(user_id){ where(user_id: user_id).where.not(status: 'Koszyk') }
   
   # after_update :calculate_total
   # after_update :calculate_discount,
     # if: Proc.new { |order| order.status ==  'Nieopłacone' }
   after_update :send_mail,
   if: Proc.new { |order| order.status !=  'Koszyk' }
+
+  after_update :create_draft_order,
+  if: Proc.new { |order| order.status ==  'Niezrealizowane' }
 
   def send_mail
     if self.status == 'Zrealizowane'
@@ -25,6 +29,10 @@ class Order < ApplicationRecord
 
   def shipment_number
     rand(1000000000000)
+  end
+
+  def create_draft_order
+    self.user.create_draft_order
   end
 
   # def calculate_total

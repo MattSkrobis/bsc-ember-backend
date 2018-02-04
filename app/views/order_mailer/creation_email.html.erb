@@ -5,21 +5,21 @@
 <ul>
   <% @order.order_lines.each do |ol| %>
   <li>
-    <%= ol.count %>szt. - <%= ol.product.name %> w rozmiarze <%= ol.size%> - cena za szt: <%= ol.product.price%> PLN - <%= ol.product.price*ol.count%> PLN 
+    SKU #<%= ol.product.sku %> | <%= ol.count %>szt. - <%= ol.product.name %> w rozmiarze <%= ol.size%> - cena za szt: <%= ol.product.price%> PLN - <%= ol.product.price*ol.count%> PLN 
   </li>
   <% end %>
 </ul>
+
+<p><b>Razem (z kosztem przesyłki po znizce): </b><%= @order.price_after_discount %> PLN</p>
 
 <p>
 Na tym etapie nie jest mozliwa zmiana zamówienia. Twoje zamówienie zostanie zrealizowane najpóźniej do trzech dni po zaksięgowaniu wpłaty. Poinformujemy cię o tym fakcie w następnej wiadomości.
 </p>
 
-
 <% if @order.payment_method == 'transfer' %>
 <p> 
 Wybrałeś/łaś opcję zapłaty przelewem. Prosimy o przelew na konto <b>
-  MSBC 10 2394 2913 9313 0149 4342 0234
-</b>, w tytule przelewu wpisując <b>"Zapłata za zamównienie numer <%= @order.id %>"<b/>.
+  MSBC 10 2394 2913 9313 0149 4342 0234</b>, w tytule przelewu wpisując <b>"Zapłata za zamównienie numer <%= @order.id %>"<b/>.
 </p> 
 <% end %>
 <p>

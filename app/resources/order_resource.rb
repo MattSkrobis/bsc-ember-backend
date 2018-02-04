@@ -7,5 +7,8 @@ class OrderResource < JSONAPI::Resource
   filter :cart, apply: ->(records, value, _options) {
     records.cart(value[0]['userId'])
   }
+  filter :not_cart, apply: ->(records, value, _options) {
+    records.not_cart(value[0]['userId'])
+  }
 
 end

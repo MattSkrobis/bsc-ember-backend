@@ -1,9 +1,9 @@
-admin = User.create(first_name: "Angela", last_name: "Ziegler", email: "a.ziegler@example.com", 
+admin = User.create(first_name: "Angela", last_name: "Ziegler", email: "s.krobismateusz@gmail.com", 
 address_line1: 'ul. 3 Maja 21', address_line2: '43-300 Bielsko-Biała', gender: 'female', 
 telephone_number: 342423421, is_admin: true,
 password: 'Secret99', password_confirmation: 'Secret99')
 
-user = User.create(first_name: "Reinhardt", last_name: "Wilhelm", email: "r.wilhelm@example.com",
+user = User.create(first_name: "Reinhardt", last_name: "Wilhelm", email: "skrobismateus.z@gmail.com",
  address_line1: "ul. Roosevelta 34/3", address_line2: "63-213 Poznań", 
  gender: "male", telephone_number: "342423423", is_admin: false,
  password: 'Secret99', password_confirmation: 'Secret99')
@@ -16,15 +16,15 @@ categories.each do |name|
   Category.create(name: name)
 end
 
-30.times do 
+5.times do 
   ['Sukienka', 'Podkoszulek', 'Dres sportowy'].each_with_index do |name, index|
-    Product.create(name: name, gender: 'female', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(500),
+    Product.create(name: name, gender: 'female', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(200),
     availability: true, currency: 'zł', quantity: 10000, category_id: Category.find_by(name: categories[index]), material: materials.sample,
     color: colors.sample)
   end
 
   ['Garnitur', 'Koszula', 'Dres sportowy'].each_with_index do |name, index|
-    Product.create(name: name, gender: 'male', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(500),
+    Product.create(name: name, gender: 'male', description: Faker::Lorem.paragraph, sku: rand(100000), price: rand(200),
     availability: true, currency: 'zł', quantity: 10000, category_id: Category.find_by(name: categories[index]), material: materials.sample,
     color: colors.sample)
   end
@@ -47,7 +47,6 @@ end
 
 order_statuses = ['Zrealizowane', 'W realizacji', 'Nieopłacone', 'Anulowane']
 products = Product.pluck(:id)
-
 
 order_statuses.each do |status|
   Order.create(user: user, status: status, discount: rand(50)).tap do |order|
