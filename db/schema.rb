@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108150839) do
+ActiveRecord::Schema.define(version: 20180204130106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
+  enable_extension "pg_trgm"
 
   create_table "answers", force: :cascade do |t|
     t.text "description"
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20180108150839) do
     t.decimal "total"
     t.string "courier"
     t.decimal "price_after_discount"
+    t.string "payment_method"
   end
 
   create_table "pictures", force: :cascade do |t|
