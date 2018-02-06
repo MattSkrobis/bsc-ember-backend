@@ -30,6 +30,12 @@ end
   end
 end
 
+Product.where(name: 'Sukienka').update_all(category_id: 1)
+Product.where(name: 'Garnitur').update_all(category_id: 1)
+Product.where(name: 'Podkoszulek').update_all(category_id: 2)
+Product.where(name: 'Koszula').update_all(category_id: 2)
+Product.where(name: 'Dres sportowy').update_all(category_id: 3)
+
 q1 = Question.create(description: 'Jaki kolor preferujesz?', query_field: 'color')
 colors.each {|answer| Answer.create(question_id: q1.id, description: answer)}
 
