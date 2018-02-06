@@ -4,7 +4,7 @@ class OrderMailer < ApplicationMailer
 
   def cancelled_email(order)
     @order = order
-    mail(:to => "#{@order.user.email}", :subject => "Zamówienie zostało anulowanew")
+    mail(:to => "#{@order.user.email}", :subject => "Zamówienie zostało anulowane")
   end
 
   def fulfilled_email(order)
