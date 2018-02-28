@@ -7,4 +7,15 @@ Rails.application.routes.draw do
   jsonapi_resources :products
   jsonapi_resources :categories
   jsonapi_resources :pictures
+  jsonapi_resources :orders
+  jsonapi_resources :order_lines
+  jsonapi_resources :questions
+  jsonapi_resources :answers
+  jsonapi_resources :messages
+  jsonapi_resources :replies
+  jsonapi_resources :user_answers
+
+  namespace :mailer do
+    resource :reply, only: :create
+  end
 end

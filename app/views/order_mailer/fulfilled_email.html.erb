@@ -1,0 +1,15 @@
+<p>Witaj, <%= @order.user.email %>!</p>
+
+<p>Chcemy poinformować Cię, iz zamówienie nr <%= @order.id %> z dnia <%= @order.created_at.strftime("%d/%m/%Y") %> zostało wysłane.</p>
+
+<p>
+Kurier: <%= @order.courier %>.
+</br>
+Nr listu przewozowego: <%= @order.shipment_number %>.
+</p>
+
+<p>
+Dziękujemy za zaufanie.
+</br>
+Pozdrawiamy, BSC
+</p>

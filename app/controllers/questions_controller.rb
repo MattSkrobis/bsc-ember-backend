@@ -1,0 +1,2 @@
+class QuestionsController < RestrictedController
+end

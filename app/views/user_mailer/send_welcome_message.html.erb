@@ -1,0 +1,7 @@
+<p>Witaj, <%= @user.first_name %> <%= @user.last_name %>!</p>
+
+<p>Rejestracja przebiegła pomyślnie. Aby się zalogować skorzystaj z tego linku:</p>
+<p><%= link_to 'Zaloguj się do BSC',"#{ENV['FRONTEND_HOST']}/login" %></p>
+<p>
+Pozdrawiamy, BSC
+</p>

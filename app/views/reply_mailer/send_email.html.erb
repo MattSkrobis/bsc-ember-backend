@@ -1,0 +1,14 @@
+<p>Witaj, <%= @reply.message.email %>!</p>
+
+<p><%= @reply.message.created_at.strftime("%d/%m/%Y o %H:%M") %> zadałeś/łaś nam nastupujące pytanie:</p>
+
+<p><%= @reply.message.body %></p>
+
+<p>Odpowiedź:</p>
+<p> 
+   <%= @reply.body %>
+</p>
+
+<p>
+Pozdrawiamy, BSC
+</p>

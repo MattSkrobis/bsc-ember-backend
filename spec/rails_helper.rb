@@ -1,8 +1,8 @@
 ENV["RAILS_ENV"] ||= 'test'
-if ENV['WITH_SIMPLE_COV']
-  require 'simplecov'
-  SimpleCov.start 'rails'
-end
+# if ENV['WITH_SIMPLE_COV']
+#   require 'simplecov'
+#   SimpleCov.start 'rails'
+# end
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'email_spec'
