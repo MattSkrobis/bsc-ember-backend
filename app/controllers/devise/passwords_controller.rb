@@ -3,7 +3,6 @@
 class Devise::PasswordsController < DeviseController
   prepend_before_action :require_no_authentication
 
-  # POST /resource/password
   def create
     resource = resource_class.find_by(email: params[:email])
      if (resource)
@@ -12,7 +11,6 @@ class Devise::PasswordsController < DeviseController
     render json: { head: :no_content }
   end
 
-  # PUT /resource/password
   def update
 
     attributes = resource_params

@@ -1,6 +1,6 @@
 <p>Witaj, <%= @order.user.email %>!</p>
 
-<p><%= @order.created_at.strftime("%d/%m/%Y o %H:%M") %> złozyłeś/łaś u nas zamówienie nr <%= @order.id %>. Składa się ono z następujących produktów:</p>
+<p><%= @order.updated_at.strftime("%d/%m/%Y o %H:%M") %> złozyłeś/łaś u nas zamówienie nr <%= @order.id %>. Składa się ono z następujących produktów:</p>
 
 <ul>
   <% @order.order_lines.each do |ol| %>
